@@ -1,32 +1,26 @@
 package CSCE_247_HomeWork01;
 
+
 import java.util.ArrayList;
 
 public class InsertionSort implements SortBehavior {
 
-    //referanced http://faculty.edcc.edu/paul.bladek/CS142/insertionSort.htm
+    //referanced https://stackabuse.com/insertion-sort-in-java/
     public ArrayList<String> sort(ArrayList<String> data) {
-        
-        String temp;
-        for(int i=1;i< data.length;i++)
-        {
-            temp=data[i];
-            int j = 0;
-            for(j = i; j>0;j--)
-            {
-                if(temp.compareTo(data[j-1])<0)
-                {
-                    data[j] = data[j-1];   
-                }else
-                { 
-                break;
-                }
-                data[j]=temp;
-            }
-        }
+       for(int i =1;i<data.size();i++)
+       {
+           String current=data.get(i);
+           int j= i-1;
+           while(j>-1 &&(data.get(j).compareTo(current)>0)){
+               data.set(j+1, data.get(j));
+               j--;
+           }
+           data.set(j+1, current);
+       }
 
-
+//Change this to ArrayList sort
         return data;
     }
     
 }
+

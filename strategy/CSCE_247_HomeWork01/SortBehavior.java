@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public interface SortBehavior
 {
-public ArrayList<String> sort(ArrayList<String> data);
+public ArrayList<String> sort(ArrayList<String> data); //forses others to implement differnt types of sorting 
 }

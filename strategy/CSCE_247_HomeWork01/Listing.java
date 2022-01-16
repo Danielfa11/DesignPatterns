@@ -6,33 +6,50 @@ public class Listing
 {
 private String title;
 private ArrayList<String> items;
-private SortBehavior SortBehavior;
+private SortBehavior sortBehavior;
 
-public Listing(String title, ArrayList<String> items, SortBehavior SortBehavior){
+
+public Listing(String title){ //ArrayList<String> items, SortBehavior SortBehavior){
     this.title = title;
-    this.items = items;
-    this.SortBehavior = SortBehavior;
+    items = new ArrayList<String>();        // class parts 
+    sortBehavior = new BubbleSort();
 }
 
 public String getTitle()
 {
     return title;
 }
-public Listing(String title)
-{
-    System.out.println(title);
+
+public ArrayList<String> getSortedList()
+{      
+    sortBehavior.sort(items);   
+    return items;
 }
 
-public void add(String item)
+public ArrayList<String> getUnSortedList()      //just returns the list 
 {
-items.add(item);
+    return items;
 }
-public void remove(String item)
+
+
+public void add(String item)        // adds items to the list with the built in .add() for Arraylist -doesnt work yet-
+{
+    if(items.equals(null))
+    {
+        items.add(0, item);
+    }else{
+        items.add(item);
+    }
+}
+
+public void remove(String item)     // removes items from the list with the .removes method of arraylists 
 {
     items.remove(item);
 }
-public void setSortBehavior(SortBehavior SortBehavior)
-{
 
+public void setSortBehavior(SortBehavior sb)        // sets sort behavior
+{
+     sortBehavior = sb;   
 }
+
 }

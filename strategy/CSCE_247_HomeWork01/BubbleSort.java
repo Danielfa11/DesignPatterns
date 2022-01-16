@@ -4,18 +4,21 @@ import java.util.ArrayList;
 
 public class BubbleSort implements SortBehavior {
 
-    //referanced https://stackoverflow.com/questions/8121176/java-sort-arraylist-using-bubblesort
+    //referancedhttps://stackoverflow.com/questions/30951974/basic-bubble-sort-with-arraylist-in-java/54285692
     public ArrayList<String> sort(ArrayList<String> data) {
         String temp;
-        for(int i=0;i< data.size();i++)
+        if(data.size()>1)
         {
-            for (int j =0; j<data.size()-1;j++)
+            for(int i= 0;i<data.size()-1;i++)
             {
-                if(data.get(j).compareTo(data.get(j+1))>0)
+                for(int j =0; j<data.size()-i-1;j++)
                 {
-                    temp=data.get(j);
-                    data.set(i,data.get(i+1));
-                    data.set(i+1, temp);
+                    if(data.get(j).compareTo(data.get(j+1))>0)
+                    {
+                        temp = data.get(j+1);
+                        data.set(j+1,data.get(j));
+                        data.set(j,temp);
+                    }
                 }
             }
         }

@@ -1,3 +1,5 @@
+package CSCE_247_HomeWork01;
+
 import java.util.ArrayList;
 
 /**
