@@ -12,7 +12,7 @@ public class PT {
         this.firstName = firstName;
         this.lastName = lastName;
         this. bio = bio;
-        exercise = new Exercise[1];
+        exercise = new Exercise[2];
      }
 
     public void addExercise(String title, ArrayList<String>muscleGroups, ArrayList<String>directions){
@@ -43,7 +43,7 @@ public class PT {
     }
 
     private Exercise[] growArray(Exercise exercise[]) {
-        Exercise[] temp = new Exercise[numExercises+1];
+        Exercise[] temp = new Exercise[numExercises*2];
         for(int i = 0; i < exercise.length; i++) {
             temp[i] = exercise[i];
           }
