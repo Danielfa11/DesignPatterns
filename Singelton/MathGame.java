@@ -1,7 +1,6 @@
 import java.util.Random;
 import java.util.random.*;
 import java.io.*;
-import java.text.DecimalFormat;
 import java.util.Scanner;
 public class MathGame {
     private static MathGame mathgame;
@@ -21,6 +20,7 @@ public class MathGame {
        operands[1] = "-";
        operands[2] = "/";
        operands[3] = "*";
+       System.out.println("Let's have fun with Math!");
 
     }
 
@@ -38,15 +38,15 @@ public class MathGame {
  * the method to enter the play of the game over all
  */
     public void play() {
-        System.out.println("Let's have fun with Math!");
-      boolean keepPlaying = true;
+      
         
-       while(keepPlaying){
+       while(true){
+        boolean  tracescore= false;
         String keepPlay = "P" ; 
         System.out.print("(P)lay or (Q)uit: ");
         keepPlay = reader.next();
         if(keepPlay.equalsIgnoreCase("P")){
-            keepPlaying = playRound();
+            tracescore = playRound();
         }
         else if(keepPlay.equalsIgnoreCase("Q")){
             System.out.println("you won "+score+" games!\nGoodbye");
@@ -55,7 +55,9 @@ public class MathGame {
         else{
             System.out.println("enter either p or q");
         }
-
+        if(tracescore){
+            score++;
+        }
         }
 
     }
@@ -91,11 +93,10 @@ public class MathGame {
        
        if((Canwser)==(inputAnwere) ){
         System.out.println("You got it");
-        score++;
         return true;
        }
        System.out.println("The correct anwaser is "+ Canwser);
-        return true;
+        return false;
     }
 
 }
